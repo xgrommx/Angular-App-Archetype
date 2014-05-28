@@ -1,8 +1,6 @@
-var pjson = require('../../package.json');
-
 var config = {
-	name: pjson.name,
-	version: pjson.version
+	name: 'Angular App Archetype',
+	version: '0.1.0'
 };
 
 module.exports = config;

@@ -22,10 +22,7 @@ var production = false; //Link this to build options
 
 gulp.task('watch-js', function() {
 
-	var bundler = watchify(config.js.src, {
-		debug: !production,
-		insertGlobals: true
-	});
+	var bundler = watchify(config.js.src);
 
 	bundler.transform(str2jsify.configure({
 		extensions: '.html'
@@ -34,7 +31,9 @@ gulp.task('watch-js', function() {
 	bundler.on('update', rebundle);
 
 	function rebundle (file) {
-		return bundler.bundle()
+		return bundler.bundle({
+				debug: !production
+			})
 			.pipe(plumber())
 			.pipe( source(config.js.output) )
 			.pipe( gulp.dest(config.js.dist) )

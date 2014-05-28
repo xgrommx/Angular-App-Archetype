@@ -1,5 +1,5 @@
-var config = require('./config.js'),
-	app = require('./app.js');
+var config = require('./config'), //if you need it!
+	app = require('./app'),
+	indexController = require('../controllers/index/indexController');
 
-console.log(app);
-
+indexController(app);
