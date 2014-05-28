@@ -1,8 +1,8 @@
 /*global angular: true */
 require('angular');
-require('angular-route');
+require('angular-ui-route');
 require('angular-resource');
 
-var app = angular.module('app', ['ngRoute', 'ngResource']);
+var app = angular.module('app', ['ui.router', 'ngResource']);
 
 module.exports = app;

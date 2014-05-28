@@ -1,7 +1,5 @@
-var template = require('./indexTemplate.html'),
+var indexTemplate = require('./indexTemplate.html'),
 	listView = require('../../modules/list/list');
-
-
 
 function controller($scope){
 	$scope.name = 'Jon Yardley';
@@ -16,10 +14,15 @@ module.exports = function(app){
 
 
 	//Attach controller to app
-	app.config(['$routeProvider', function($routeProvider){
-		$routeProvider.when("/", {
-			controller: ['$scope', controller],
-			template: template
+	app.config(['$stateProvider', function($stateProvider){
+		$stateProvider.state('index',{
+			url: '/',
+			views: {
+				main: {
+					controller: ['$scope', controller],
+					template: indexTemplate
+				}
+			}
 		});
 	}]);
 
