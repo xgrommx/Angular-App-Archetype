@@ -3,4 +3,10 @@ var config = {
 	version: '0.1.0'
 };
 
-module.exports = config;
+module.exports = function(app){
+
+	app.service('appConfig', function(){
+		return config;
+	});
+
+};
